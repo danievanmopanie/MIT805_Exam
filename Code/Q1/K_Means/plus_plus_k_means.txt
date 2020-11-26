@@ -1,0 +1,10 @@
+  #k-means  ++ cluster
+CREATE OR REPLACE MODEL
+  mit805_exam.K_means_plus_plus OPTIONS(model_type='kmeans',
+    kmeans_init_method = 'KMEANS++',
+    standardize_features = TRUE,
+    num_clusters=7) AS
+SELECT
+  *
+FROM
+  mit805_exam.model_data

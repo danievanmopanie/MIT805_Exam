@@ -1,0 +1,8 @@
+  #k-means cluster
+CREATE OR REPLACE MODEL
+  mit805_exam.K_means OPTIONS(model_type='kmeans',
+    standardize_features = TRUE) AS #num_clusters=5,
+SELECT
+  *
+FROM
+  mit805_exam.model_data
