@@ -2,7 +2,7 @@
 
 Danie Ungerer (u29129398)
 
-Repository for deliverables of MIT805 Big Data examination for Semester 2, 2020.  
+Repository for deliverables of MIT805 Big Data examination for semester 2, 2020.  
 
 ##Link to YouTube for Question 1 answer:
 https://www.youtube.com/watch?v=z3K-NiKTR1M
