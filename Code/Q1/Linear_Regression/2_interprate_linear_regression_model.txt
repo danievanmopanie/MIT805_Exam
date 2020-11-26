@@ -1,0 +1,12 @@
+#interprate the linear regression model
+
+CREATE OR REPLACE TABLE
+  mit805_exam.regression_interpreted AS
+SELECT 
+  * 
+FROM 
+  ML.FEATURE_INFO(MODEL mit805_exam.linear_regression)  # Info for destandardizing
+LEFT JOIN
+  ML.WEIGHTS(MODEL mit805_exam.linear_regression) # Model coefficients
+ON 
+input = processed_input

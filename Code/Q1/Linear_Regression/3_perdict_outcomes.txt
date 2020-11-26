@@ -1,0 +1,21 @@
+  #predict the outcomes from the linear regression model
+CREATE OR REPLACE TABLE
+  mit805_exam.regression_prediction AS
+SELECT
+  *
+FROM
+  ML.PREDICT(MODEL mit805_exam.linear_regression,
+    (
+    SELECT
+      weight_kilograms,
+      gestation_weeks,
+      weight_gain_kilograms,
+      is_male,
+      plurality,
+      mother_age,
+      father_age,
+      mother_married,
+      smoke_drink,
+      parent_age
+    FROM
+      mit805_exam.model_data) )

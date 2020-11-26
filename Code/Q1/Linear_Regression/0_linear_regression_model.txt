@@ -1,0 +1,24 @@
+#create the ML model for linear regression
+
+CREATE OR REPLACE MODEL mit805_exam.linear_regression
+OPTIONS
+  ( MODEL_TYPE = 'linear_reg',
+    LS_INIT_LEARN_RATE = .15,
+    L1_REG = 1,   
+    MAX_ITERATIONS = 5, 
+    INPUT_LABEL_COLS=['weight_kilograms']) AS
+  
+SELECT
+  weight_kilograms,
+  gestation_weeks,
+  weight_gain_kilograms,
+  is_male,
+  plurality,
+  mother_age,
+  father_age,
+  mother_married,
+  smoke_drink,
+  parent_age
+  
+FROM
+  mit805_exam.model_data
