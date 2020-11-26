@@ -1,0 +1,33 @@
+#choose final parameters for ML models
+CREATE OR REPLACE TABLE
+     mit805_exam.model_data AS
+SELECT
+    is_male,
+    weight_kilograms,
+    plurality,
+    mother_age,
+    father_age,
+    CAST(mother_race AS string) AS mother_race,  #race is a category, not a number
+    CAST(father_race AS string) AS father_race,  #race is a category, not a number
+    mother_married,
+    gestation_weeks,
+    weight_gain_kilograms,
+    CASE
+        WHEN smoke_and_drink LIKE 'False False' THEN "No Smoke no Drink"
+        WHEN smoke_and_drink LIKE 'Other False' THEN "No Smoke no Drink"
+        WHEN smoke_and_drink LIKE 'Other True' THEN "Smoke or Drink"
+        WHEN smoke_and_drink LIKE 'True True' THEN "Smoke and Drink"
+    END AS smoke_drink,
+    mother_age + father_age AS parent_age
+    
+FROM
+    mit805_exam.babyweight_selection
+    
+WHERE
+    weight_gain_kilograms IS NOT NULL  #make sure null records are cleaned
+    AND mother_age IS NOT NULL  #make sure null records are cleaned
+    AND father_age IS NOT NULL  #make sure null records are cleaned
+    AND mother_married IS NOT NULL  #make sure null records are cleaned
+    AND mother_race IS NOT NULL  #make sure null records are cleaned
+    AND father_age <= 80
+    

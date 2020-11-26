@@ -1,0 +1,38 @@
+#treat missing data
+CREATE OR REPLACE TABLE
+     mit805_exam.babyweight_data AS
+SELECT
+    year,
+    month,
+    day,
+    state,
+    is_male,
+    weight_kilograms,  #convert pounds to kilograms
+    CASE
+        WHEN plurality = 1 THEN "Single(1)"
+        WHEN plurality = 2 THEN "Twins(2)"
+        WHEN plurality = 3 THEN "Triplets(3)"
+        WHEN plurality = 4 THEN "Quadruplets(4)"
+        WHEN plurality = 5 THEN "Quintuplets(5)"
+        WHEN plurality IS NULL THEN "Other"
+    END AS plurality,
+    mother_age,
+    mother_race,
+    mother_married,
+    gestation_weeks,
+    CASE
+        WHEN cigarette_use IS NULL THEN "Other"
+        WHEN cigarette_use = false THEN "False"
+        WHEN cigarette_use = true THEN "True"
+    END AS cigarette_use,
+    CASE
+        WHEN alcohol_use IS NULL THEN "Other"
+        WHEN alcohol_use = false THEN "False"
+        WHEN alcohol_use = true THEN "True"
+    END AS alcohol_use,
+    weight_gain_kilograms,
+    father_race,
+    father_age,
+    
+FROM
+    mit805_exam.babyweight_raw

@@ -1,0 +1,8 @@
+#Step 0: original datatset (21GB)
+  
+CREATE OR REPLACE TABLE
+  mit805-exam.bigquery_public_data_natality AS
+SELECT
+  *
+FROM
+  `bigquery-public-data.samples.natality`

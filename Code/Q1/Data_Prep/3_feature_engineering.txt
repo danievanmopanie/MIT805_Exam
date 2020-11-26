@@ -1,0 +1,23 @@
+#feature engineering
+CREATE OR REPLACE TABLE
+     mit805_exam.babyweight AS
+SELECT
+    year,
+    month,
+    day,
+    state,
+    is_male,
+    weight_kilograms,
+    plurality,
+    mother_age,
+    mother_race,
+    mother_married,
+    gestation_weeks,
+    cigarette_use,
+    alcohol_use,
+    weight_gain_kilograms,
+    father_race,
+    father_age,
+    CONCAT(cigarette_use, " ", alcohol_use) AS smoke_and_drink
+FROM
+    mit805_exam.babyweight_data
