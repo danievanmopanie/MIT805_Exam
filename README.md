@@ -4,8 +4,8 @@ Danie Ungerer (u29129398)
 
 Repository for deliverables of MIT805 Big Data examination for semester 2, 2020.  
 
-##Link to YouTube for Question 1 answer:
-https://www.youtube.com/watch?v=z3K-NiKTR1M
+##Link to GDrive folder for videos (Question 1 and Question 2b):
+https://drive.google.com/drive/folders/11LcBTyUBXr3hRu_hUHETy2h7gsMuJY0E?usp=sharing
 
 
 ##Access the Tableau Workbook here:
