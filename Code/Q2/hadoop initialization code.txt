@@ -1,0 +1,5 @@
+hadoop fs -ls gs://mit805_exam
+
+gcloud compute ssh --zone=us-central1-b --ssh-flag="-D" --ssh-flag="10000" --ssh-flag="-N" "question2b-m"
+
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "http://question2b-m:8088" --proxy-server="socks5://localhost:10000" --host-resolver-rules="MAP * 0.0.0.0 , EXCLUDE localhost" -user-data-dir=/tmp/question2b-m
